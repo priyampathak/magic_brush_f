@@ -5,6 +5,9 @@ import logo from "../assets/logo.png";
 import cart from "../assets/cart.png";
 import menu from "../assets/menu.png";
 import menu_cross from "../assets/menu-cross.png";
+import user from "../assets/user.png";
+
+import Link from 'next/link';
 
 export default function Navbar() {
   const [menutab, setMenutab] = useState(0);
@@ -12,8 +15,8 @@ export default function Navbar() {
   return (
     <nav className=" bg-fuchsia-100 shadow-lg shadow-fuchsia-200 fixed w-full z-20 top-0 start-0 border-gray-200 dark:border-gray-600">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a
-          href="https://flowbite.com/"
+        <Link
+          href="/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
           <Image
@@ -23,27 +26,35 @@ export default function Navbar() {
             width={100}
             height={100}
           />
-        </a>
+        </Link>
 
-        <div className="lg:flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-          <button
-            type="button"
-            className="text-white hidden lg:block bg-rose-800 hover:bg-rose-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center"
-          >
-            Login
-          </button>
-
+        <div className="lg:flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse mr-6">
+        <Link
+          href="/pages/login"
+          className="flex items-center space-x-3 rtl:space-x-reverse"
+        >
           <Image
-            className="h-8 w-16 pl-8 hidden lg:block"
-            src={cart}
-            alt="cart"
+            className=" h-8 w-8 hidden lg:block"
+            src={user}
+            alt="Logo"
             width={100}
             height={100}
           />
+        </Link>
+
+        <Link href='/pages/cart'>
+            <Image
+                className="h-8 w-16 pl-8 hidden lg:block"
+                src={cart}
+                alt="cart"
+                width={100}
+                height={100}
+            />
+        </Link>
 
           {menutab === 0 ? (
             <Image
-              className="h-8 w-16 pl-8 lg:hidden"
+              className="h-6 w-14 mb-6 pl-8 lg:hidden"
               src={menu}
               alt="menu"
               width={100}
@@ -52,7 +63,7 @@ export default function Navbar() {
             />
           ) : (
             <Image
-              className="h-8 w-16 pl-8 lg:hidden"
+              className="h-6 w-14 mb-6 pl-8 lg:hidden"
               src={menu_cross}
               alt="menu"
               width={100}
@@ -68,29 +79,29 @@ export default function Navbar() {
         >
           <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
             <li>
-              <a href="#" className="block py-2 px-3 text-black ">
+              <Link href="/" className="block py-2 px-3 text-gray-600 hover:text-gray-800 hover:font-semibold ">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="block py-2 px-3 text-black rounded ">
+              <Link href='/pages/categories' className="block py-2 px-3 text-gray-600 rounded hover:text-gray-800 hover:font-semibold">
                 Categories
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="block py-2 px-3 text-black rounded ">
+              <Link href="/pages/about" className="block py-2 px-3 text-gray-600 rounded hover:text-gray-800 hover:font-semibold">
                 About
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="block py-2 px-3 text-black rounded">
+              <Link href="/pages/services" className="block py-2 px-3 text-gray-600 rounded hover:text-gray-800 hover:font-semibold">
                 Services
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="block py-2 px-3 text-black ">
+              <Link href="/pages/contact" className="block py-2 px-3 text-gray-600 hover:text-gray-800 hover:font-semibold">
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -100,39 +111,39 @@ export default function Navbar() {
         <div className=" h-80 hidden justify-center items-center text-center">
           <ul className="p-4 font-medium border md:border-0">
             <li>
-              <a href="#" className="block py-2 px-3 text-black ">
+              <Link href="/" className="block py-2 px-3 text-gray-600 hover:text-gray-800 hover:font-semibold">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="block py-2 px-3 text-black rounded ">
+              <Link href="/pages/categories" className="block py-2 px-3 text-gray-600 rounded hover:text-gray-800 hover:font-semibold">
                 Categories
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="block py-2 px-3 text-black rounded ">
+              <Link href="/pages/about" className="block py-2 px-3 text-gray-600 rounded hover:text-gray-800 hover:font-semibold">
                 About
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="block py-2 px-3 text-black rounded">
+              <Link href="/pages/services" className="block py-2 px-3 text-gray-600 rounded hover:text-gray-800 hover:font-semibold">
                 Services
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="block py-2 px-3 text-black ">
+              <Link href="/pages/contact" className="block py-2 px-3 text-gray-600 hover:text-gray-800 hover:font-semibold">
                 Contact
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="block py-2 px-3 text-black ">
+              <Link href="/pages/login" className="block py-2 px-3 text-gray-600 hover:text-gray-800 hover:font-semibold">
                 Login
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="block py-2 px-3 text-black ">
+              <Link href="/pages/cart" className="block py-2 px-3 text-gray-600 hover:text-gray-800 hover:font-semibold">
                 Cart
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -140,39 +151,39 @@ export default function Navbar() {
         <div className=" h-80 flex justify-center items-center text-center">
           <ul className="p-4 font-medium border md:border-0">
             <li>
-              <a href="#" className="block py-2 px-3 text-black ">
+              <Link href="/" className="block py-2 px-3 text-gray-600 rounded hover:text-gray-800 hover:font-semibold">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="block py-2 px-3 text-black rounded ">
+              <Link href="/pages/categories" className="block py-2 px-3 text-gray-600 rounded hover:text-gray-800 hover:font-semibold">
                 Categories
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="block py-2 px-3 text-black rounded ">
+              <Link href="/pages/about" className="block py-2 px-3 text-gray-600 rounded hover:text-gray-800 hover:font-semibold">
                 About
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="block py-2 px-3 text-black rounded">
+              <Link href="/pages/services" className="block py-2 px-3 text-gray-600 rounded hover:text-gray-800 hover:font-semibold">
                 Services
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="block py-2 px-3 text-black ">
+              <Link href="/pages/contact" className="block py-2 px-3 text-gray-600 hover:text-gray-800 hover:font-semibold">
                 Contact
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="block py-2 px-3 text-black ">
+              <Link href="/pages/login" className="block py-2 px-3 text-gray-600 hover:text-gray-800 hover:font-semibold">
                 Login
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="block py-2 px-3 text-black ">
+              <Link href="/pages/cart" className="block py-2 px-3 text-gray-600 hover:text-gray-800 hover:font-semibold">
                 Cart
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
