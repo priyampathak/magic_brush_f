@@ -14,6 +14,7 @@ import fi3 from "../../assets/hair do.jpg";
 import fi4 from "../../assets/drapping.webp";
 import bs1 from "../../assets/bs1.webp";
 import model from "../../assets/model.png";
+import Footer from "@/app/components/Footer";
 
 export default function page() {
   const images = [slider1, slider2]; // Array of image URLs or components
@@ -43,6 +44,7 @@ export default function page() {
                 height={1200}
                 width={1800}
                 className="h-96 w-full rounded-md"
+                
               />
             </div>
           ))}
@@ -60,6 +62,7 @@ export default function page() {
                 height={450}
                 width={450}
                 className="h-48 w-48 rounded-full mb-4 shadow-lg shadow-slate-400"
+                alt="img"
               />
               <h1>Makeup</h1>
             </Link>
@@ -71,6 +74,7 @@ export default function page() {
                 height={450}
                 width={450}
                 className="h-48 w-48 rounded-full mb-4 shadow-lg shadow-slate-400"
+                alt="img"
               />
               <h1>Mehndi</h1>
             </Link>
@@ -82,6 +86,7 @@ export default function page() {
                 height={450}
                 width={450}
                 className="h-48 w-48 rounded-full mb-4 shadow-lg shadow-slate-400"
+                alt="img"
               />
               <h1>Hair Do</h1>
             </Link>
@@ -93,6 +98,7 @@ export default function page() {
                 height={450}
                 width={450}
                 className="h-48 w-48 rounded-full mb-4 shadow-lg shadow-slate-400"
+                alt="img"
               />
               <h1>Draping</h1>
             </Link>
@@ -118,13 +124,14 @@ export default function page() {
               height={5000}
               width={5000}
               className="pt-0 h-6/6 w-6/6"
+              alt="img"
             />
           </div>
         </div>
-
-        <div className="flex justify-center font-light text-3xl h-16 pb-12 items-center">
-          <h1>New Launches</h1>
+        <div className="flex justify-center font-light text-3xl h-16 py-14 items-center">
+          <h1>AT YOUR DOORSTEP</h1>
         </div>
+        <Footer />
       </div>
     </div>
   );

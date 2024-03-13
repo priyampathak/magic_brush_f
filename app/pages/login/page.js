@@ -86,7 +86,7 @@ export default function page() {
             </button>
           </form>
           <h1 className="text-md pt-4 text-centerm">
-            New User? <Link href='/pages/signup' className="text-blue-700">Create an account</Link>
+            New User? <Link href='/pages/signup/selection' className="text-blue-700">Create an account</Link>
           </h1>
         </div>
       </div>

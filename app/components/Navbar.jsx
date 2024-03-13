@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import logo from "../assets/logo.png";
 import cart from "../assets/cart.png";
@@ -11,7 +11,58 @@ import Link from 'next/link';
 
 export default function Navbar() {
   const [menutab, setMenutab] = useState(0);
+  const [tokens, setTokens] = useState(false)// token indicator
+  const [loading, setLoading] = useState(true);//for fetching 
+  const [userData, setUserData] = useState(null);// for store user data
+  useEffect(() => {
+    const token = getTokenFromCookie();
+    if (token == null) {
+      setTokens(true)
+    }
+    async function fetchData() {
+      try {
+        const token = getTokenFromCookie();
+        if (!token) {
+          setTokens(true);
+          throw new Error("Token not found in cookie");
+        }
+        // Make the API call to fetch user data
+        //console.log(token);
+        const response = await fetch(
+          `http://localhost:4000/api/magic_brush/${token}`,
+          {
+            headers: {
+              Authorization: `${token}`,
+            },
+          }
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch user data");
+        }
+        // Parse the response JSON
+        const data = await response.json();
+        setUserData(data);
+      } catch (error) {
+        //console.warn("Error fetching user data:", error);
+        
+      } finally {
+        setLoading(false); // Set loading to false after data fetching is complete
+      }
+    }
+    fetchData();
+  }, []);
 
+  function getTokenFromCookie() {
+    const cookies = document.cookie.split(";");
+    for (let cookie of cookies) {
+      const [name, value] = cookie.trim().split("=");
+      if (name === "token") {
+        // Assuming the cookie name is 'token'
+        return value;
+      }
+    }
+    return null; // Token not found
+  }
   return (
     <nav className=" bg-fuchsia-100 shadow-lg shadow-fuchsia-200 fixed w-full z-20 top-0 start-0 border-gray-200 dark:border-gray-600 mb-20">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -33,13 +84,24 @@ export default function Navbar() {
           href="/pages/login"
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
-          <Image
-            className=" h-8 w-8 hidden lg:block"
-            src={user}
-            alt="Logo"
-            width={100}
-            height={100}
-          />
+          {!tokens && !loading ? (
+            <><h1>{userData.first_name}</h1>
+            <Image
+              className="h-8 w-8 hidden lg:block"
+              src={user}
+              alt="Logo"
+              width={100}
+              height={100}
+            /></>
+          ) : (
+            <Image
+              className="h-8 w-8 hidden lg:block"
+              src={user}
+              alt="Logo"
+              width={100}
+              height={100}
+            />
+          )}
         </Link>
 
         <Link href='/pages/cart'>
