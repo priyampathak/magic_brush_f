@@ -34,7 +34,7 @@ export default function Page() {
         // Make the API call to fetch user data
         //console.log(token);
         const response = await fetch(
-          `http://localhost:4000/api/magic_brush/${token}`,
+          `http://project.mbn.priyam.tech/api/magic_brush/${token}`,
           {
             headers: {
               Authorization: `${token}`,
