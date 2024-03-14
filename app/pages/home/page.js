@@ -13,6 +13,9 @@ import fi2 from "../../assets/mehndi.jpg";
 import fi3 from "../../assets/hair do.jpg";
 import fi4 from "../../assets/drapping.webp";
 import bs1 from "../../assets/bs1.webp";
+import haircutds from "../../assets/doorstep/haircut.jpg";
+import makeupds from "../../assets/doorstep/makeups.jpg";
+import mehndids from "../../assets/doorstep/Mehndi.jpg";
 import model from "../../assets/model.png";
 import Footer from "@/app/components/Footer";
 
@@ -130,6 +133,21 @@ export default function page() {
         </div>
         <div className="flex justify-center font-light text-3xl h-16 py-14 items-center">
           <h1>AT YOUR DOORSTEP</h1>
+        </div>
+        <div className="flex h-auto my-14 mx-40">
+            <div className=" w-2/4 mb-28 mt-4">
+                <Image src={mehndids} height={200} width={200} className="absolute ml-72 mt-48 shadow-lg shadow-gray-400 rounded-md" />
+                <div className="flex">
+                    <Image src={haircutds} height={300} width={600} className="h-52 w-96 mt-12
+                    shadow-lg shadow-gray-400 rounded-md"/>
+                    <Image src={makeupds} height={80} width={130} className="w-48 ml-10
+                    shadow-lg shadow-gray-400 rounded-md"/>
+                </div>
+            </div>
+            <div className="w-2/4">
+                <h1 className=" font-semibold text-2xl">What we brings to your Doorsteps?</h1>
+                <h1 className=" text-xl mt-6 text-wrap">Our service brings the quintessence of beauty directly to your doorstep. With a touch of convenience and luxury, we specialize in offering exquisite services such as mehndi decoration, hairstyling, hairdos, and draping, all within the comfort of your own space. Whether you're preparing for a special occasion, a grand celebration, or simply indulging in self-care, our expert team is dedicated to enhancing your natural beauty and elevating your style effortlessly. From intricate mehndi designs to tailored hairstyling and elegant draping techniques, we ensure that every detail is meticulously crafted to reflect your individuality and personal preferences. Embrace the epitome of convenience without compromising on sophistication with our doorstep beauty services. </h1>
+            </div>
         </div>
         <Footer />
       </div>

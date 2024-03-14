@@ -118,7 +118,7 @@ export default function Page() {
               <h1 className="pt-2 text-center">
                 {userData.user_role_id == "1" && "Admin"}
                 {userData.user_role_id == "2" && "Partner"}
-                {userData.user_role_id == "3" && "Customer"}
+                {userData.user_role_id == "3" && "User"}
               </h1>
             </div>
           </div>
