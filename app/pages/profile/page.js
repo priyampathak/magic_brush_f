@@ -56,7 +56,7 @@ export default function Page() {
       }
     }
     fetchData();
-  }, []);
+  }, [router]);
 
   //extract token from cookies and pass to fetch for user data
   function getTokenFromCookie() {

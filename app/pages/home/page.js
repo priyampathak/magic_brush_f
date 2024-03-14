@@ -113,11 +113,11 @@ export default function page() {
             <h1 className="text-4xl font-bold">Elevate your everyday fashion to new heights</h1>
             <h1 className="text-4xl font-bold"></h1>
             <h1 className="text-lg text-wrap w-5/5 mt-8 ">
-              "Discover a realm where fashion meets distinction and elevate your everyday 
+              &quot;Discover a realm where fashion meets distinction and elevate your everyday 
               styling to an unparalleled level of sophistication.
               Embrace a fusion of timeless elegance and contemporary flair as
               you transcend mundane routines and redefine your wardrobe with
-              elevated refinement."
+              elevated refinement.&quot;
             </h1>
             <button className="w-52 h-12 bg-rose-900 my-10 rounded-lg text-white">Explore Now</button>
           </div>
@@ -141,12 +141,15 @@ export default function page() {
                     <Image src={haircutds} height={300} width={600} className="h-52 w-96 mt-12
                     shadow-lg shadow-gray-400 rounded-md"/>
                     <Image src={makeupds} height={80} width={130} className="w-48 ml-10
-                    shadow-lg shadow-gray-400 rounded-md"/>
+                    shadow-lg shadow-gray-400 rounded-md" alt="Makeup" />
                 </div>
             </div>
             <div className="w-2/4">
-                <h1 className=" font-semibold text-2xl">What we brings to your Doorsteps?</h1>
-                <h1 className=" text-xl mt-6 text-wrap">Our service brings the quintessence of beauty directly to your doorstep. With a touch of convenience and luxury, we specialize in offering exquisite services such as mehndi decoration, hairstyling, hairdos, and draping, all within the comfort of your own space. Whether you're preparing for a special occasion, a grand celebration, or simply indulging in self-care, our expert team is dedicated to enhancing your natural beauty and elevating your style effortlessly. From intricate mehndi designs to tailored hairstyling and elegant draping techniques, we ensure that every detail is meticulously crafted to reflect your individuality and personal preferences. Embrace the epitome of convenience without compromising on sophistication with our doorstep beauty services. </h1>
+                <h1 className="font-semibold text-2xl">What we brings to your Doorsteps?</h1>
+                <h1 className="text-xl mt-6 text-wrap">
+                  `Our service brings the quintessence of beauty directly to your doorstep. With a touch of convenience and luxury, we specialize in offering exquisite services such as mehndi decoration, hairstyling, hairdos, and draping, all within the comfort of your own space. Whether you&apos;re preparing for a special occasion, a grand celebration, or simply indulging in self-care, our expert team is dedicated to enhancing your natural beauty and elevating your style effortlessly. From intricate mehndi designs to tailored hairstyling and elegant draping techniques, we ensure that every detail is meticulously crafted to reflect your individuality and personal preferences. Embrace the epitome of convenience without compromising on sophistication with our doorstep beauty services.`
+                </h1>
+
             </div>
         </div>
         <Footer />
