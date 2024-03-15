@@ -35,8 +35,8 @@ export default function Page() {
 
     const handleSubmit = async (e) => {
       e.preventDefault();
-      try {
-        const response = await fetch('http://project.mbn.priyam.tech/api/magic_brush/users/signup', {
+      try {                           
+        const response = await fetch('http://localhost:4000/api/magic_brush/users/signup', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

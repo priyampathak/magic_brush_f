@@ -26,10 +26,11 @@ export default function Navbar() {
           setTokens(true);
           throw new Error("Token not found in cookie");
         }
+        console.log(token)
         // Make the API call to fetch user data
         //console.log(token);
         const response = await fetch(
-          `http://project.mbn.priyam.tech/api/magic_brush/${token}`,
+          `/api/magic_brush/${token}`,
           {
             headers: {
               Authorization: `${token}`,
@@ -41,7 +42,10 @@ export default function Navbar() {
         }
         // Parse the response JSON
         const data = await response.json();
+        
         setUserData(data);
+       
+        console.log("data is", data)
       } catch (error) {
         //console.warn("Error fetching user data:", error);
         
@@ -58,9 +62,11 @@ export default function Navbar() {
       const [name, value] = cookie.trim().split("=");
       if (name === "token") {
         // Assuming the cookie name is 'token'
+        
         return value;
       }
     }
+    console.log("no tokes")
     return null; // Token not found
   }
   return (

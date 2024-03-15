@@ -21,20 +21,21 @@ export default function Page() {
   useEffect(() => {
     const token = getTokenFromCookie();
     if (token == null) {
+      console.log("No token")
       redirect("/pages/login");
     }
+    
     async function fetchData() {
       try {
         const token = getTokenFromCookie();
         if (!token) {
-          redirect("/pages/login");
+          //redirect("/pages/login");
           setTokenNotFound(true);
           throw new Error("Token not found in cookie");
         }
         // Make the API call to fetch user data
         //console.log(token);
-        const response = await fetch(
-          `http://project.mbn.priyam.tech/api/magic_brush/${token}`,
+        const response = await fetch(`/api/magic_brush/${token}`,
           {
             headers: {
               Authorization: `${token}`,
@@ -46,11 +47,13 @@ export default function Page() {
         }
         // Parse the response JSON
         const data = await response.json();
+        
         setUserData(data);
       } catch (error) {
+        console.log("No token error")
         console.error("Error fetching user data:", error);
         document.cookie = `token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-        router.push("/pages/login");
+        //router.push("/pages/login");
       } finally {
         setLoading(false); // Set loading to false after data fetching is complete
       }
@@ -66,6 +69,7 @@ export default function Page() {
       if (name === "token") {
         // Assuming the cookie name is 'token'
         return value;
+        
       }
     }
     return null; // Token not found

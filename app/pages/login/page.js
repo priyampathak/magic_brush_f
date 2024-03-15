@@ -17,6 +17,8 @@ export default function Page() {
     const token = getTokenFromCookie();
    
         if (token!=null) {
+          console.log('token', token)
+          console.log("token is there")
           redirect("/pages/profile");
         }
   })
@@ -34,8 +36,8 @@ export default function Page() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch('http://project.mbn.priyam.tech/api/magic_brush/users/login', {
+    try {                         
+      const response = await fetch('/api/magic_brush/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
